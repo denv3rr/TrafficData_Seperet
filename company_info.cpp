@@ -17,5 +17,5 @@ void changeCompanyInfo()
     std::getline(std::cin, companyInfo.address);
     std::cout << "\nEnter new company phone number: \n";
     std::getline(std::cin, companyInfo.phone);
-    std::cout << "\nCompany information updated successfully.\n";
+    std::cout << "\033[32m\nCompany information updated successfully.\n\033[32m";
 }
