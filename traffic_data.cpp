@@ -32,3 +32,40 @@ void viewTrafficData()
         std::cout << data.pageViews << "\n, Bandwidth: " << data.bandwidth << " MB\n\n\n"
     }
 };
+
+void saveTrafficData()
+{
+    std::ofstream outFile(filename);
+    if (outFile.is_open())
+    {
+        for (const auto &data : trafficDataList)
+        {
+            outFile << data.url << " " << data.visitors << " " << data.pageViews << " " << data.bandwidth << "\n\n\n";
+        }
+        outFile.close();
+        std::cout << "Traffic data saved to " << filename << "\n\n\n";
+    }
+    else
+    {
+        std::cout << "Unable to open this file for writing. Please try again.\n\n\n"
+    }
+};
+
+void loadTrafficData(const std::string &filename)
+{
+    std::ifstream inFile(filename);
+    if (inFile.is_open())
+    {
+        TrafficData data;
+        while (inFile >> data.url >> data.visitors >> data.pageViews >> data.bandwidth)
+        {
+            trafficDataList.push_back(data);
+        }
+        inFile.close();
+        std::cout << "Traffic data loaded from " << filename << "\n";
+    }
+    else
+    {
+        std::cerr << "Unable to open file for reading. Please try again.\n\n\n";
+    }
+}
