@@ -10,6 +10,7 @@
 #include "menu.h"
 #include "traffic_data.h"
 #include "link_opener.h"
+#include "company_info.h"
 
 /*
  * displayMenu() function - self explanitory
@@ -23,7 +24,8 @@ void displayMenu()
     std::cout << "2. View Traffic Data\n";
     std::cout << "3. Visit Seperet.com\n";
     std::cout << "4. Visit Our YouTube Channel\n";
-    std::cout << "5. Exit\n";
+    std::cout << "5. Change Company Information\n";
+    std::cout << "6. Exit\n";
     std::cout << "\n";
     std::cout << "Enter selection:\n";
 }
@@ -46,6 +48,9 @@ void handleMenuSelection(int choice)
         linkOpener.openSeperetYouTube();
         break;
     case 5:
+        changeCompanyInfo();
+        break;
+    case 6:
         std::cout << "\n********************\n";
         std::cout << "\nExiting...\n";
         break;
