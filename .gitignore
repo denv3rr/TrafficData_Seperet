@@ -1,0 +1,9 @@
+# ignore statements:
+*
+*/
+
+# unignore statements
+!*.cpp
+!*.h
+!*.md
+!.gitignore
