@@ -13,13 +13,47 @@
 #include "company_info.h"
 
 /*
- * displayMenu() function - self explanitory
+ * displayCurrentPath() function
+ */
+void displayCurrentPath(MenuState state)
+{
+
+    /*
+     * shows current menu name (ADD OPTIONS as needed)
+     */
+    switch (state)
+    {
+    case MAIN_MENU:
+        std::cout << "Current Path: Main Menu\n";
+        break;
+    case COMPANY_INFO_MENU:
+        std::cout << "Current Path: Company Information Menu\n";
+        break;
+        /*
+         * example of new case here:
+         * case ADD_CASE_NAME:
+         *     std::cout << "Current Path: Main Menu\n";
+         *     break;
+         */
+
+    default:
+        break;
+    }
+}
+
+/*
+ * displayMenu() function - displays different menus
+ * (new menu states can be added)
  */
 void displayMenu(MenuState state)
 {
+    // title banner
     std::cout << "\n\n********************\n\n";
     std::cout << "Internet Traffic Auditor";
     std::cout << "\n\n********************\n\n";
+
+    // calls function to display current menu location
+    displayCurrentPath(state);
 
     /*
      * changes menu state (ADD OPTIONS as needed)
