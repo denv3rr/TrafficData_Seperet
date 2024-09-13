@@ -44,7 +44,7 @@ void saveTrafficData(const std::string &filename)
             outFile << data.url << " " << data.visitors << " " << data.pageViews << " " << data.bandwidth << "\n\n\n";
         }
         outFile.close();
-        std::cout << "Traffic data saved to " << filename << "\n\n\n";
+        std::cout << "\nTraffic data saved to " << filename << "\n\n\n";
     }
     else
     {
@@ -57,8 +57,8 @@ void loadTrafficData(const std::string &filename)
     std::ifstream inFile(filename);
     if (!inFile)
     {
-        std::cout << "A data file does not yet exist. If it does exist, the filenames do not match.\n";
-        std::cout << "We currently have an empty dataset.\n";
+        std::cout << "\n\nA data file does not yet exist. If it does exist, the filenames do not match.\n";
+        std::cout << "We currently have an empty dataset.\n\n";
         return;
     }
 
@@ -70,10 +70,10 @@ void loadTrafficData(const std::string &filename)
             trafficDataList.push_back(data);
         }
         inFile.close();
-        std::cout << "Traffic data loaded from " << filename << "\n";
+        std::cout << "\n\nTraffic data loaded from: " << filename << "\n";
     }
     else
     {
-        std::cerr << "Unable to open file for reading. Please try again.\n\n\n";
+        std::cerr << "\n\nUnable to open file for reading. Please try again.\n\n\n";
     }
 }

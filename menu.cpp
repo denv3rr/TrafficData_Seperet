@@ -16,7 +16,9 @@
  */
 void displayMenu()
 {
-    std::cout << "Internet Traffic Auditor\n\n";
+    std::cout << "\n\n********************\n\n";
+    std::cout << "Internet Traffic Auditor";
+    std::cout << "\n\n********************\n\n";
     std::cout << "1. Add Traffic Data\n";
     std::cout << "2. View Traffic Data\n";
     std::cout << "3. Visit Seperet.com\n";
@@ -44,7 +46,8 @@ void handleMenuSelection(int choice)
         linkOpener.openSeperetYouTube();
         break;
     case 5:
-        std::cout << "Exiting...\n";
+        std::cout << "\n********************\n";
+        std::cout << "\nExiting...\n";
         break;
     default:
         std::cout << "Looks like you typed an invalid choice.\n";
