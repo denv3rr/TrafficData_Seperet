@@ -3,9 +3,13 @@
  *
  */
 
+// Standard
 #include <iostream>
+
+// Local
 #include "menu.h"
 #include "traffic_data.h"
+#include "link_opener.h"
 
 /*
  * displayMenu() function - self explanitory
@@ -33,10 +37,10 @@ void handleMenuSelection(int choice)
         viewTrafficData();
         break;
     case 3:
-        std::cout << "Visit: https://seperet.com\n";
+        ShellExecute(0, 0, L"https://seperet.com", 0, 0, SW_SHOW);
         break;
     case 4:
-        std::cout << "Visit: https:youtube.com/@seperet?sub_confirmation=1\n";
+        ShellExecute(0, 0, L"https:youtube.com/@seperet?sub_confirmation=1", 0, 0, SW_SHOW);
         break;
     case 5:
         std::cout << "Exiting...\n";
