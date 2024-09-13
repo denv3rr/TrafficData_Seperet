@@ -28,6 +28,7 @@ void displayMenu()
 
 void handleMenuSelection(int choice)
 {
+    LinkOpener linkOpener;
     switch (choice)
     {
     case 1:
@@ -37,15 +38,14 @@ void handleMenuSelection(int choice)
         viewTrafficData();
         break;
     case 3:
-        ShellExecute(0, 0, L"https://seperet.com", 0, 0, SW_SHOW);
+        linkOpener.openSeperetWebsite();
         break;
     case 4:
-        ShellExecute(0, 0, L"https:youtube.com/@seperet?sub_confirmation=1", 0, 0, SW_SHOW);
+        linkOpener.openSeperetYouTube();
         break;
     case 5:
         std::cout << "Exiting...\n";
         break;
-
     default:
         std::cout << "Looks like you typed an invalid choice.\n";
         std::cout << "Please try again!\n";

@@ -34,7 +34,7 @@ void viewTrafficData()
     }
 };
 
-void saveTrafficData()
+void saveTrafficData(const std::string &filename)
 {
     std::ofstream outFile(filename);
     if (outFile.is_open())

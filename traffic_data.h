@@ -18,5 +18,7 @@ struct TrafficData
 
 void addTrafficData();
 void viewTrafficData();
+void saveTrafficData(const std::string &filename);
+void loadTrafficData(const std::string &filename);
 
 #endif // TRAFFIC_DATA_H
