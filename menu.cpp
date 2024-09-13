@@ -15,7 +15,7 @@
 /*
  * displayMenu() function - self explanitory
  */
-void displayMenu()
+void displayMenu(MenuState state)
 {
     std::cout << "\n\n********************\n\n";
     std::cout << "Internet Traffic Auditor";
@@ -48,7 +48,7 @@ void displayMenu()
     std::cout << "Enter selection:\n";
 }
 
-void handleMenuSelection(int choice)
+void handleMenuSelection(MenuState &state, int choice)
 {
     LinkOpener linkOpener;
     switch (state)

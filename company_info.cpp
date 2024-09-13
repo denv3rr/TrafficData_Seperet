@@ -10,18 +10,6 @@ CompanyInfo companyInfo;
 
 void changeCompanyInfo()
 {
-    int choice;
-    std::cout << "1. Edit Company Information\n";
-    std::cout << "2. Exit\n";
-    std::cout << "Enter selection: ";
-    std::cin >> choice;
-
-    if (choice == 2)
-    {
-        std::cout << "\nExiting 'Edit Company Information' page.\n\n";
-        return;
-    }
-
     std::cout << "Enter new company name";
     std::cout << "Enter new company name: ";
     std::getline(std::cin, companyInfo.name);
