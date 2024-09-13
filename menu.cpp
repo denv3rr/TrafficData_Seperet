@@ -21,3 +21,30 @@ void displayMenu()
     std::cout << "\n";
     std::cout << "Enter selection:\n";
 }
+
+void handleMenuSelection(int choice)
+{
+    switch (choice)
+    {
+    case 1:
+        addTrafficData();
+        break;
+    case 2:
+        viewTrafficData();
+        break;
+    case 3:
+        std::cout << "Visit: https://seperet.com\n";
+        break;
+    case 4:
+        std::cout << "Visit: https:youtube.com/@seperet?sub_confirmation=1\n";
+        break;
+    case 5:
+        std::cout << "Exiting...\n";
+        break;
+
+    default:
+        std::cout << "Looks like you typed an invalid choice.\n";
+        std::cout << "Please try again!\n";
+        break;
+    }
+}
