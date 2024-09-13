@@ -24,6 +24,11 @@ void addTrafficData()
     std::cout << "Traffic data added successfully.\n";
 };
 
-void viewTrafficData() {
-
+void viewTrafficData()
+{
+    std::cout << "Internet Traffic Data:\n\n" for (const auto &data : trafficDataList)
+    {
+        std::cout << "URL: " << data.url << "\n, Visitors: " << data.visitors << "\n, Page Views: ";
+        std::cout << data.pageViews << "\n, Bandwidth: " << data.bandwidth << " MB\n\n\n"
+    }
 };
