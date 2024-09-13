@@ -1,4 +1,4 @@
-#include "LinkOpener.h"
+#include "link_opener.h"
 #include <cstdlib>
 
 void LinkOpener::openSeperetWebsite()

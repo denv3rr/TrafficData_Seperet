@@ -55,6 +55,13 @@ void saveTrafficData(const std::string &filename)
 void loadTrafficData(const std::string &filename)
 {
     std::ifstream inFile(filename);
+    if (!inFile)
+    {
+        std::cout << "A data file does not yet exist. If it does exist, the filenames do not match.\n";
+        std::cout << "We currently have an empty dataset.\n";
+        return;
+    }
+
     if (inFile.is_open())
     {
         TrafficData data;
