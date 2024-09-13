@@ -8,18 +8,15 @@
 
 int main()
 {
-    const std::string filename = "traffic_data.txt"; // this will be the name of the output file
-    loadTrafficData(filename);
-
+    MenuState state = MAIN_MENU;
     int choice;
 
-    do
+    while (state != EXIT)
     {
-        displayMenu();
+        displayMenu(state);
         std::cin >> choice;
-        handleMenuSelection(choice);
-    } while (choice != 5); // change this depending on exit function location
+        handleMenuSelection(state, choice);
+    }
 
-    saveTrafficData(filename);
     return 0;
 }

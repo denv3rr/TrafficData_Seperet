@@ -10,12 +10,12 @@ CompanyInfo companyInfo;
 
 void changeCompanyInfo()
 {
-    std::cout << "Enter new company name";
+    std::cout << "\n\nEditing Company Info\n\n";
     std::cout << "Enter new company name: ";
     std::getline(std::cin, companyInfo.name);
-    std::cout << "Enter new company address: ";
+    std::cout << "\nEnter new company address: \n";
     std::getline(std::cin, companyInfo.address);
-    std::cout << "Enter new company phone number: ";
+    std::cout << "\nEnter new company phone number: \n";
     std::getline(std::cin, companyInfo.phone);
-    std::cout << "Company information updated successfully.\n";
+    std::cout << "\nCompany information updated successfully.\n";
 }

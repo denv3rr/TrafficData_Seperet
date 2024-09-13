@@ -10,6 +10,7 @@ enum MenuState
 {
     MAIN_MENU,
     COMPANY_INFO_MENU,
+    EXIT,
     /*
      * this is where new menu states
      * can be added if you need them
@@ -18,7 +19,7 @@ enum MenuState
      */
 };
 
-void displayMenu();
-void handleMenuSelection(int choice);
+void displayMenu(MenuState state);
+void handleMenuSelection(MenuState &state, int choice);
 
 #endif // MENU_H
