@@ -5,6 +5,9 @@
 
 int main()
 {
+    const std::string filename = "traffic_data.txt"; //
+    loadTrafficData(filename);
+
     int choice;
 
     do
