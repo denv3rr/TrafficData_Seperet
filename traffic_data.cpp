@@ -31,7 +31,17 @@ void viewTrafficData()
     {
         std::cout << "URL: " << data.url << "\n, Visitors: " << data.visitors << "\n, Page Views: ";
         std::cout << data.pageViews << "\n, Bandwidth: " << data.bandwidth << " MB\n\n\n";
-    }
+    };
+
+    void viewAnalyticsData()
+    {
+        std::string squarespaceApiKey = "your_squarespace_api_key";
+
+        std::string analyticsData = fetchSquarespaceAnalyticsData(squarespaceApiKey);
+
+        std::cout << "Squarespace Analytics Data:\n\n";
+        std::cout << analyticsData << "\n";
+    };
 };
 
 void saveTrafficData(const std::string &filename)

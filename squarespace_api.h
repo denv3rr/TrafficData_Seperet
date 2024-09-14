@@ -6,7 +6,7 @@
 
 #include <string>
 
-std::string fetchSquarespaceTrafficData(const std::string &apiKey);
+std::string fetchSquarespaceAnalyticsData(const std::string &apiKey);
 std::string fetchGoogleSheetsData(const std::string &spreadsheetId, const std::string &range);
 
 #endif // SQUARESPACE_API_H

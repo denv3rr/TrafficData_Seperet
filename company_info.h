@@ -6,7 +6,11 @@
 #ifndef COMPANY_INFO_H
 #define COMPANY_INFO_H
 
+// Standard
 #include <string>
+
+// Local
+#include "squarespace_api.h"
 
 struct CompanyInfo
 {
