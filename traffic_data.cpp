@@ -7,6 +7,8 @@
 // Standard
 #include <iostream>
 #include <fstream>
+#include <limits>
+#include <csignal>
 
 // Local
 #include "traffic_data.h"
@@ -35,6 +37,21 @@ void addTrafficData()
     std::cin >> data.bandwidth;
     trafficDataList.push_back(data);
     std::cout << "\033[32m \n\nTraffic data added successfully.\n\n \033[0m";
+
+    // Append new data to the file
+    std::ofstream outFile("traffic_data.txt", std::ios_base::app);
+    if (outFile.is_open())
+    {
+        outFile << data.url << "\n"
+                << data.visitors << "\n"
+                << data.pageViews << "\n"
+                << data.bandwidth << "\n";
+        outFile.close();
+    }
+    else
+    {
+        std::cout << "\033[31m \n\nUnable to open this file for writing. Please try again.\n\n \033[0m";
+    }
 };
 
 /*
@@ -79,18 +96,39 @@ void viewGoogleAnalyticsData()
  */
 void viewTrafficData()
 {
-    // Data for entries into traffic data text file will display with this function
-    std::cout << "\n\n";
-    std::cout << "********************";
-    std::cout << "\n\n";
-    std::cout << "TRAFFIC DATA REPORT:\n\n";
-    for (const auto &data : trafficDataList)
+    std::ifstream inFile("traffic_data.txt");
+    if (!inFile)
     {
-        std::cout << "URL: " << data.url << "\n, Visitors: " << data.visitors << "\n, Page Views: ";
-        std::cout << data.pageViews << "\n, Bandwidth: " << data.bandwidth << " MB\n\n\n";
+        std::cout << "\033[31m \n\nA data file does not yet exist. If it does exist, the filenames do not match.\n \033[0m";
+        std::cout << "We currently have an empty dataset.\n\n";
+        return;
     }
-    std::cout << "********************";
-    std::cout << "\n\n";
+
+    if (inFile.is_open())
+    {
+        TrafficData data;
+        std::cout << "\n\n";
+        std::cout << "********************";
+        std::cout << "\n\n";
+        std::cout << "TRAFFIC DATA REPORT:\n\n";
+        while (std::getline(inFile, data.url) && inFile >> data.visitors >> data.pageViews >> data.bandwidth)
+        {
+            inFile.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore the newline character after bandwidth
+            std::cout << "URL: " << data.url << "\nVisitors: " << data.visitors << "\nPage Views: ";
+            std::cout << data.pageViews << "\nBandwidth: " << data.bandwidth << " MB\n\n\n";
+            std::cout << "\n\n\n";
+        }
+
+        std::cout << "\033[32m \n\nEnd of report.\n\n \033[0m";
+        std::cout << "\n\n";
+        std::cout << "********************";
+        std::cout << "\n\n";
+        inFile.close();
+    }
+    else
+    {
+        std::cerr << "\033[31m \n\nUnable to open file for reading. Please try again.\n\n \033[0m";
+    }
 
     /*
     #ifdef ENABLE_SQUARESPACE
@@ -117,6 +155,7 @@ void viewTrafficData()
     }
     */
 }
+
 /*
  * Saves changes to data text file
  *
@@ -131,7 +170,8 @@ void saveTrafficData(const std::string &filename)
             outFile << data.url << " " << data.visitors << " " << data.pageViews << " " << data.bandwidth << "\n\n\n";
         }
         outFile.close();
-        std::cout << "\033[32m \nTraffic data saved to " << filename << "\n\n\n \033[0m";
+        std::cout << "\033[32m \nTraffic data saved to:\n";
+        std::cout << filename << "\n\n\n \033[0m";
     }
     else
     {
@@ -156,8 +196,9 @@ void loadTrafficData(const std::string &filename)
     if (inFile.is_open())
     {
         TrafficData data;
-        while (inFile >> data.url >> data.visitors >> data.pageViews >> data.bandwidth)
+        while (std::getline(inFile, data.url) && inFile >> data.visitors >> data.pageViews >> data.bandwidth)
         {
+            inFile.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore the newline character after bandwidth
             trafficDataList.push_back(data);
         }
         inFile.close();

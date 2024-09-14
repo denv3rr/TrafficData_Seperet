@@ -62,10 +62,11 @@ void viewCompanyInfo()
     std::cout << "\n\n";
     std::cout << "********************";
     std::cout << "\n\n";
-    std::cout << "TRAFFIC DATA REPORT:\n\n";
+    std::cout << "Company Information:\n\n";
 
-    std::cout << "Company Name: " << companyInfo.name << "\n, Address: " << companyInfo.address << "\n, Phone #: ";
-    std::cout << companyInfo.phone << "\n";
+    std::cout << "Company Name: " << companyInfo.name << "\nAddress: " << companyInfo.address << "\nPhone #: ";
+    std::cout << companyInfo.phone << "\n\n";
+    std::cout << "\033[32m \nReturning to Company Information menu.\n\n \033[0m";
 
     std::cout << "********************";
     std::cout << "\n\n";
