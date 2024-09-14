@@ -12,6 +12,7 @@
 #include "traffic_data.h"
 #include "link_opener.h"
 #include "company_info.h"
+#include "squarespace.h"
 
 /*
  * map for menu modularity by storing object names and printing
@@ -62,10 +63,15 @@ void displayMenu(MenuState state)
         std::cout << "3. Visit Seperet.com\n";
         std::cout << "4. Visit Our YouTube Channel\n";
         std::cout << "5. Change Company Information\n";
-        std::cout << "6. Exit\n";
+        std::cout << "6. Connect Squarespace Account\n";
+        std::cout << "7. Exit\n";
         break;
     case COMPANY_INFO_MENU:
         std::cout << "1. Edit Company Information\n";
+        std::cout << "2. Back\n";
+        break;
+    case SQUARESPACE_MENU:
+        std::cout << "1. Enter Squarespace Account Information\n";
         std::cout << "2. Back\n";
         break;
 
@@ -103,6 +109,8 @@ void handleMenuSelection(MenuState &state, int choice)
             state = COMPANY_INFO_MENU;
             break;
         case 6:
+            state = SQUARESPACE_MENU;
+        case 7:
             state = EXIT;
             std::cout << "\n********************\n";
             std::cout << "\nExiting...\n";
@@ -126,6 +134,22 @@ void handleMenuSelection(MenuState &state, int choice)
             break;
         default:
             std::cout << "\033[31m \nLooks like you typed an invalid choice.\n \033[0m";
+            std::cout << "Please try again!\n";
+            break;
+        }
+        break;
+
+    case SQUARESPACE_MENU:
+        switch (choice)
+        {
+        case 1:
+            connectSquarespaceAccount();
+            break;
+        case 2:
+            state = MAIN_MENU;
+            break;
+        default:
+            std::cout << "Looks like you typed an invalid choice.\n";
             std::cout << "Please try again!\n";
             break;
         }

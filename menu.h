@@ -10,6 +10,7 @@ enum MenuState
 {
     MAIN_MENU,
     COMPANY_INFO_MENU,
+    SQUARESPACE_MENU,
     EXIT,
     /*
      * this is where new menu states
