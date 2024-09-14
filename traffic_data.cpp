@@ -3,12 +3,22 @@
  * currently requires *manually* entering of data.
  *
  */
+
+// Standard
 #include <iostream>
 #include <fstream>
+
+// Local
 #include "traffic_data.h"
+#include "google_analytics_api.h"
+#include "squarespace_api.h"
 
 std::vector<TrafficData> trafficDataList;
 
+/*
+ * Function to manually add traffic data
+ *
+ */
 void addTrafficData()
 {
     TrafficData data;
@@ -24,6 +34,42 @@ void addTrafficData()
     std::cout << "\033[32m \nTraffic data added successfully.\n\n \033[0m";
 };
 
+/*
+ * Function to display Squarespace analytics data
+ *
+ */
+void viewAnalyticsData()
+{
+    std::string squarespaceApiKey = "your_squarespace_api_key";
+
+    std::string analyticsData = fetchSquarespaceAnalyticsData(squarespaceApiKey);
+
+    std::cout << "Squarespace Analytics Data:\n\n";
+    std::cout << analyticsData << "\n";
+};
+
+/*
+ * Function to display Google Analytics data
+ *
+ */
+void viewGoogleAnalyticsData()
+{
+    std::string googleAnalyticsApiKey = "your_google_analytics_api_key";
+    std::string viewId = "your_view_id";
+    std::string startDate = "2023-01-01";
+    std::string endDate = "2023-12-31";
+
+    std::string analyticsData = fetchGoogleAnalyticsData(googleAnalyticsApiKey, viewId, startDate, endDate);
+
+    std::cout << "Google Analytics Data:\n";
+    std::cout << analyticsData << "\n";
+}
+
+/*
+ * Main function for displaying analytics data from manual
+ * entry as well as API integration
+ *
+ */
 void viewTrafficData()
 {
     std::cout << "Internet Traffic Data:\n\n";
@@ -33,17 +79,14 @@ void viewTrafficData()
         std::cout << data.pageViews << "\n, Bandwidth: " << data.bandwidth << " MB\n\n\n";
     };
 
-    void viewAnalyticsData()
-    {
-        std::string squarespaceApiKey = "your_squarespace_api_key";
-
-        std::string analyticsData = fetchSquarespaceAnalyticsData(squarespaceApiKey);
-
-        std::cout << "Squarespace Analytics Data:\n\n";
-        std::cout << analyticsData << "\n";
-    };
+    viewAnalyticsData();       // Call the function to display Squarespace analytics data
+    viewGoogleAnalyticsData(); // Call the function to display Google Analytics data
 };
 
+/*
+ * Saves changes to data text file
+ *
+ */
 void saveTrafficData(const std::string &filename)
 {
     std::ofstream outFile(filename);
@@ -62,6 +105,10 @@ void saveTrafficData(const std::string &filename)
     }
 };
 
+/*
+ * Loads traffic data from a text file
+ *
+ */
 void loadTrafficData(const std::string &filename)
 {
     std::ifstream inFile(filename);

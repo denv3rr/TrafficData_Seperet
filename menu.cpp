@@ -64,7 +64,8 @@ void displayMenu(MenuState state)
         std::cout << "4. Visit Our YouTube Channel\n";
         std::cout << "5. Change Company Information\n";
         std::cout << "6. Connect Squarespace Account\n";
-        std::cout << "7. Exit\n";
+        std::cout << "7. View Google Analytics Data\n";
+        std::cout << "8. Exit\n";
         break;
     case COMPANY_INFO_MENU:
         std::cout << "1. Edit Company Information\n";
@@ -112,6 +113,9 @@ void handleMenuSelection(MenuState &state, int choice)
             state = SQUARESPACE_MENU;
             break;
         case 7:
+            viewGoogleAnalyticsData();
+            break;
+        case 8:
             state = EXIT;
             std::cout << "\n********************\n";
             std::cout << "\nExiting...\n";
