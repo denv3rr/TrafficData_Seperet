@@ -44,7 +44,6 @@ void displayCurrentPath(MenuState state)
 void displayMenu(MenuState state)
 {
     // title banner
-
     std::cout << "\n\n********************\n\n";
     std::cout << "Internet Traffic Auditor";
     std::cout << "\n\n********************\n\n";
@@ -110,6 +109,7 @@ void handleMenuSelection(MenuState &state, int choice)
             break;
         case 6:
             state = SQUARESPACE_MENU;
+            break;
         case 7:
             state = EXIT;
             std::cout << "\n********************\n";
@@ -149,7 +149,7 @@ void handleMenuSelection(MenuState &state, int choice)
             state = MAIN_MENU;
             break;
         default:
-            std::cout << "Looks like you typed an invalid choice.\n";
+            std::cout << "\033[31m \nLooks like you typed an invalid choice.\n \033[0m";
             std::cout << "Please try again!\n";
             break;
         }

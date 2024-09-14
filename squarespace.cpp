@@ -38,11 +38,11 @@ void saveSquarespaceAccount(const std::string &filename)
         outFile << squarespaceAccount.email << "\n";
         outFile << squarespaceAccount.password << "\n";
         outFile.close();
-        std::cout << "Squarespace account information saved to " << filename << "\n";
+        std::cout << "\033[32m\nSquarespace account information saved to " << filename << "\n\033[0m\n";
     }
     else
     {
-        std::cerr << "Unable to open file for writing.\n";
+        std::cerr << "\033[31m \nUnable to open file for writing.\n \033[0m";
     }
 }
 
@@ -54,10 +54,10 @@ void loadSquarespaceAccount(const std::string &filename)
         std::getline(inFile, squarespaceAccount.email);
         std::getline(inFile, squarespaceAccount.password);
         inFile.close();
-        std::cout << "Squarespace account information loaded from " << filename << "\n";
+        std::cout << "\033[32m\nSquarespace account information loaded from " << filename << "\n\033[0m\n";
     }
     else
     {
-        std::cerr << "Unable to open file for reading.\n";
+        std::cerr << "\033[31m \nUnable to open file for reading.\n \033[0m";
     }
 }
