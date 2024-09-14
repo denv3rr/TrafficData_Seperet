@@ -5,12 +5,23 @@
 
 // Standard
 #include <iostream>
+#include <map>
 
 // Local
 #include "menu.h"
 #include "traffic_data.h"
 #include "link_opener.h"
 #include "company_info.h"
+
+/*
+ * map for menu modularity by storing object names and printing
+ * them as a current menu path for the user
+ */
+std::map<MenuState, std::string> menuPaths = {
+    {MAIN_MENU, "Main Menu"},
+    {COMPANY_INFO_MENU, "Company Information Menu"},
+    // Add other menu states as needed
+};
 
 /*
  * displayCurrentPath() function
@@ -21,25 +32,7 @@ void displayCurrentPath(MenuState state)
     /*
      * shows current menu name (ADD OPTIONS as needed)
      */
-    switch (state)
-    {
-    case MAIN_MENU:
-        std::cout << "Current Path: Main Menu\n\n";
-        break;
-    case COMPANY_INFO_MENU:
-        std::cout << "Current Path: Company Information Menu\n\n";
-        break;
-        /*
-         * example of new case here:
-         * case ADD_CASE_NAME:
-         *     std::cout << "Current Path: Main Menu\n";
-         *     break;
-         */
-
-    default:
-        std::cout << "Current Path: UNKNOWN\n\n";
-        break;
-    }
+    std::cout << "Current Path: " << menuPaths[state] << "\n\n";
 }
 
 /*
