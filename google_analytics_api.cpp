@@ -1,17 +1,7 @@
-/*
- * Google API interaction C++ file
- *
- */
 #include <iostream>
 #include <curl/curl.h>
 #include "google_analytics_api.h"
-
-// Helper function to write data to a string
-size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *userp)
-{
-    ((std::string *)userp)->append((char *)contents, size * nmemb);
-    return size * nmemb;
-}
+#include "write_callback.h"
 
 std::string fetchGoogleAnalyticsData(const std::string &apiKey, const std::string &viewId, const std::string &startDate, const std::string &endDate)
 {
