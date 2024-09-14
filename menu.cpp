@@ -24,10 +24,10 @@ void displayCurrentPath(MenuState state)
     switch (state)
     {
     case MAIN_MENU:
-        std::cout << "Current Path: Main Menu\n";
+        std::cout << "Current Path: Main Menu\n\n";
         break;
     case COMPANY_INFO_MENU:
-        std::cout << "Current Path: Company Information Menu\n";
+        std::cout << "Current Path: Company Information Menu\n\n";
         break;
         /*
          * example of new case here:
@@ -37,6 +37,7 @@ void displayCurrentPath(MenuState state)
          */
 
     default:
+        std::cout << "Current Path: UNKNOWN\n\n";
         break;
     }
 }
@@ -124,7 +125,7 @@ void handleMenuSelection(MenuState &state, int choice)
         case 1:
             changeCompanyInfo();
             break;
-        case2:
+        case 2:
             state = MAIN_MENU;
             break;
         default:
