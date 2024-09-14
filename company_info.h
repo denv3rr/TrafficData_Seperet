@@ -23,6 +23,7 @@ extern CompanyInfo companyInfo;
 extern bool companyInfoUpdated; // Flags to check if the info was updated
 
 void changeCompanyInfo();
+void viewCompanyInfo(const std::string &filename);
 void saveCompanyInfo(const std::string &filename);
 void loadCompanyInfo(const std::string &filename);
 void signalHandler(int signum);

@@ -22,22 +22,26 @@ std::vector<TrafficData> trafficDataList;
 void addTrafficData()
 {
     TrafficData data;
+    std::cout << "\n\n";
+    std::cout << "********************";
+    std::cout << "\n\n";
     std::cout << "Enter URL: ";
     std::cin >> data.url;
-    std::cout << "Enter number of visitors: ";
+    std::cout << "\nEnter number of visitors: ";
     std::cin >> data.visitors;
-    std::cout << "Enter number of page views: ";
+    std::cout << "\nEnter number of page views: ";
     std::cin >> data.pageViews;
-    std::cout << "Enter bandwidth usage (in MB): ";
+    std::cout << "\nEnter bandwidth usage (in MB): ";
     std::cin >> data.bandwidth;
     trafficDataList.push_back(data);
-    std::cout << "\033[32m \nTraffic data added successfully.\n\n \033[0m";
+    std::cout << "\033[32m \n\nTraffic data added successfully.\n\n \033[0m";
 };
 
 /*
  * Function to display Squarespace analytics data
  *
  */
+/*
 void viewAnalyticsData()
 {
     std::string squarespaceApiKey = "your_squarespace_api_key";
@@ -47,11 +51,13 @@ void viewAnalyticsData()
     std::cout << "Squarespace Analytics Data:\n\n";
     std::cout << analyticsData << "\n";
 };
+*/
 
 /*
  * Function to display Google Analytics data
  *
  */
+/*
 void viewGoogleAnalyticsData()
 {
     std::string googleAnalyticsApiKey = "your_google_analytics_api_key";
@@ -64,6 +70,7 @@ void viewGoogleAnalyticsData()
     std::cout << "Google Analytics Data:\n";
     std::cout << analyticsData << "\n";
 }
+*/
 
 /*
  * Main function for displaying analytics data from manual
@@ -72,36 +79,44 @@ void viewGoogleAnalyticsData()
  */
 void viewTrafficData()
 {
-    std::cout << "Internet Traffic Data:\n\n";
+    // Data for entries into traffic data text file will display with this function
+    std::cout << "\n\n";
+    std::cout << "********************";
+    std::cout << "\n\n";
+    std::cout << "TRAFFIC DATA REPORT:\n\n";
     for (const auto &data : trafficDataList)
     {
         std::cout << "URL: " << data.url << "\n, Visitors: " << data.visitors << "\n, Page Views: ";
         std::cout << data.pageViews << "\n, Bandwidth: " << data.bandwidth << " MB\n\n\n";
     }
+    std::cout << "********************";
+    std::cout << "\n\n";
 
-#ifdef ENABLE_SQUARESPACE
-    if (!squarespaceApiKey.empty())
-    {
-        viewAnalyticsData();
-    }
-    else
-    {
-        std::cout << "Squarespace API key not found. Skipping Squarespace analytics data.\n";
-    }
-#endif
+    /*
+    #ifdef ENABLE_SQUARESPACE
+        if (!squarespaceApiKey.empty())
+        {
+            viewAnalyticsData();
+        }
+        else
+        {
+            std::cout << "Squarespace API key not found. Skipping Squarespace analytics data.\n";
+        }
+    #endif
 
-#ifdef ENABLE_GOOGLE_ANALYTICS
-    if (!googleAnalyticsApiKey.empty())
-    {
-        viewGoogleAnalyticsData();
+    #ifdef ENABLE_GOOGLE_ANALYTICS
+        if (!googleAnalyticsApiKey.empty())
+        {
+            viewGoogleAnalyticsData();
+        }
+        else
+        {
+            std::cout << "Google Analytics API key not found. Skipping Google Analytics data.\n";
+        }
+    #endif
     }
-    else
-    {
-        std::cout << "Google Analytics API key not found. Skipping Google Analytics data.\n";
-    }
-#endif
+    */
 }
-
 /*
  * Saves changes to data text file
  *
@@ -120,7 +135,7 @@ void saveTrafficData(const std::string &filename)
     }
     else
     {
-        std::cout << "\033[31m \nUnable to open this file for writing. Please try again.\n\n \033[0m";
+        std::cout << "\033[31m \n\nUnable to open this file for writing. Please try again.\n\n \033[0m";
     }
 }
 

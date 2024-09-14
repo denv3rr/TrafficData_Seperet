@@ -2,7 +2,7 @@
  * google_analytics_api.cpp
  *
  */
-
+/*
 #ifndef ENABLE_GOOGLE_ANALYTICS
 
 // Standard
@@ -77,3 +77,4 @@ void viewGoogleAnalyticsData()
 }
 
 #endif // ENABLE_GOOGLE_ANALYTICS
+*/

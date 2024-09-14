@@ -63,14 +63,15 @@ void displayMenu(MenuState state)
         std::cout << "2. View Traffic Data\n";
         std::cout << "3. Visit Seperet.com\n";
         std::cout << "4. Visit Our YouTube Channel\n";
-        std::cout << "5. Change Company Information\n";
+        std::cout << "5. Company Information\n";
         std::cout << "6. Connect Squarespace Account\n";
         std::cout << "7. View Google Analytics Data\n";
         std::cout << "8. Exit\n";
         break;
     case COMPANY_INFO_MENU:
         std::cout << "1. Edit Company Information\n";
-        std::cout << "2. Back\n";
+        std::cout << "2. View Company Information\n";
+        std::cout << "3. Back\n";
         break;
     case SQUARESPACE_MENU:
         std::cout << "1. Enter Squarespace Account Information\n";
@@ -114,7 +115,7 @@ void handleMenuSelection(MenuState &state, int choice)
             state = SQUARESPACE_MENU;
             break;
         case 7:
-            viewGoogleAnalyticsData();
+            // viewGoogleAnalyticsData();
             break;
         case 8:
             state = EXIT;
@@ -136,6 +137,9 @@ void handleMenuSelection(MenuState &state, int choice)
             changeCompanyInfo();
             break;
         case 2:
+            viewCompanyInfo();
+            break;
+        case 3:
             state = MAIN_MENU;
             break;
         default:
@@ -149,7 +153,7 @@ void handleMenuSelection(MenuState &state, int choice)
         switch (choice)
         {
         case 1:
-            connectSquarespaceAccount();
+            // connectSquarespaceAccount();
             break;
         case 2:
             state = MAIN_MENU;

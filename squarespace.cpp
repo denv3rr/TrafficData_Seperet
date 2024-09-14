@@ -1,3 +1,4 @@
+
 /*
  * squarespace.cpp file that stores logic for handling account info
  * in the squarespace switch case

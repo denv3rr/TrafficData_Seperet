@@ -3,10 +3,13 @@
  *
  */
 
+// Standard
 #include <iostream>
 #include <fstream>
 #include <limits>
 #include <csignal>
+
+// Local
 #include "company_info.h"
 
 CompanyInfo companyInfo;
@@ -35,7 +38,7 @@ void changeCompanyInfo()
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     // 'Edit Company Info' form:
-    std::cout << "\n\nEditing Company Info\n\n";
+    std::cout << "\n\n********************\n\nEditing Company Info\n\n";
     std::cout << "Enter new company name: ";
     std::getline(std::cin, companyInfo.name);
 
@@ -53,6 +56,21 @@ void changeCompanyInfo()
     saveCompanyInfo("company_info.txt");
 }
 
+void viewCompanyInfo()
+{
+    // Data for entries into traffic data text file will display with this function
+    std::cout << "\n\n";
+    std::cout << "********************";
+    std::cout << "\n\n";
+    std::cout << "TRAFFIC DATA REPORT:\n\n";
+
+    std::cout << "Company Name: " << companyInfo.name << "\n, Address: " << companyInfo.address << "\n, Phone #: ";
+    std::cout << companyInfo.phone << "\n";
+
+    std::cout << "********************";
+    std::cout << "\n\n";
+}
+
 /*
  * the actual function **for saving the info into a text file locally**
  */
@@ -65,7 +83,7 @@ void saveCompanyInfo(const std::string &filename)
         outFile << companyInfo.address << "\n";
         outFile << companyInfo.phone << "\n";
         outFile.close();
-        std::cout << "\033[32m \nCompany information saved to \n\033[0m" << filename << "\n";
+        std::cout << "\033[32m \nCompany information saved to: \n\033[0m" << filename << "\n";
     }
     else
     {

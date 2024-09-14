@@ -1,12 +1,12 @@
 /*
  * squarespace_api.cpp for getting info from squarespace API
  */
-
+/*
 #ifndef ENABLE_SQUARESPACE
 
 // Standard
 #include <iostream>
-#include <curl/curl.h>
+#include <C:\curl\include\curl\curl.h>
 
 // Local
 #include "squarespace_api.h"
@@ -43,3 +43,4 @@ void viewAnalyticsData()
 }
 
 #endif // ENABLE_SQUARESPACE
+*/
