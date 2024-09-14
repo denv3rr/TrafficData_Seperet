@@ -20,6 +20,8 @@ This program helps you manage site information such as:
 
 - To run *without* using APIs, use: `g++ -DENABLE_GOOGLE_ANALYTICS -DENABLE_SQUARESPACE -I C:\curl\include -L C:\curl\lib -lcurl *.cpp -o (name_of_out_your_file)`. This defines the Google and Squarespace macros to be set to disable or enable use of API functions.
 
+- To run *without* an `out` or `.exe` file name, remove the `-o (name_of_out_your_file)` at the end of the compile command.
+
 ## Run Program
 - Then, run the output file (`(name_of_out_your_file).exe`) on Windows.
 
