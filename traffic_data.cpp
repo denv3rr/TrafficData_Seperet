@@ -21,7 +21,7 @@ void addTrafficData()
     std::cout << "Enter bandwidth usage (in MB): ";
     std::cin >> data.bandwidth;
     trafficDataList.push_back(data);
-    std::cout << "Traffic data added successfully.\n";
+    std::cout << "\033[32m \nTraffic data added successfully.\n\n \033[0m";
 };
 
 void viewTrafficData()
@@ -44,11 +44,11 @@ void saveTrafficData(const std::string &filename)
             outFile << data.url << " " << data.visitors << " " << data.pageViews << " " << data.bandwidth << "\n\n\n";
         }
         outFile.close();
-        std::cout << "\nTraffic data saved to " << filename << "\n\n\n";
+        std::cout << "\033[32m \nTraffic data saved to " << filename << "\n\n\n \033[0m";
     }
     else
     {
-        std::cout << "Unable to open this file for writing. Please try again.\n\n\n";
+        std::cout << "\033[31m \nUnable to open this file for writing. Please try again.\n\n \033[0m";
     }
 };
 
@@ -57,7 +57,7 @@ void loadTrafficData(const std::string &filename)
     std::ifstream inFile(filename);
     if (!inFile)
     {
-        std::cout << "\n\nA data file does not yet exist. If it does exist, the filenames do not match.\n";
+        std::cout << "\033[31m \n\nA data file does not yet exist. If it does exist, the filenames do not match.\n \033[0m";
         std::cout << "We currently have an empty dataset.\n\n";
         return;
     }
@@ -70,10 +70,10 @@ void loadTrafficData(const std::string &filename)
             trafficDataList.push_back(data);
         }
         inFile.close();
-        std::cout << "\n\nTraffic data loaded from: " << filename << "\n";
+        std::cout << "\033[32m \n\nTraffic data loaded from: " << filename << "\n\n \033[0m";
     }
     else
     {
-        std::cerr << "\n\nUnable to open file for reading. Please try again.\n\n\n";
+        std::cerr << "\033[31m \n\nUnable to open file for reading. Please try again.\n\n \033[0m";
     }
 }

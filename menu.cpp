@@ -32,7 +32,8 @@ void displayCurrentPath(MenuState state)
     /*
      * shows current menu name (ADD OPTIONS as needed)
      */
-    std::cout << "Current Path: " << menuPaths[state] << "\n\n";
+    std::cout << "Current Path: \n";
+    std::cout << menuPaths[state] << "\n\n";
 }
 
 /*
@@ -105,7 +106,7 @@ void handleMenuSelection(MenuState &state, int choice)
             std::cout << "\nExiting...\n";
             break;
         default:
-            std::cout << "Looks like you typed an invalid choice.\n";
+            std::cout << "\033[31m \nLooks like you typed an invalid choice.\n \033[0m";
             std::cout << "Please try again!\n";
             break;
         }
@@ -122,7 +123,7 @@ void handleMenuSelection(MenuState &state, int choice)
             state = MAIN_MENU;
             break;
         default:
-            std::cout << "Looks like you typed an invalid choice.\n";
+            std::cout << "\033[31m \nLooks like you typed an invalid choice.\n \033[0m";
             std::cout << "Please try again!\n";
             break;
         }
