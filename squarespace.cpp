@@ -3,9 +3,14 @@
  * in the squarespace switch case
  *
  */
+
+// Standard
 #include <iostream>
 #include <fstream>
 #include <limits>
+#include <conio.h> // for blocking password with asteriks
+
+// Local
 #include "squarespace.h"
 
 SquarespaceAccount squarespaceAccount;
@@ -23,6 +28,26 @@ void connectSquarespaceAccount()
     std::getline(std::cin, squarespaceAccount.email);
 
     std::cout << "Enter Squarespace password: ";
+    char ch;
+    squarespaceAccount.password.clear();
+
+    // Read characters until the 'enter' key is pressed
+    while ((ch = _getch()) != '\r')
+    {
+        if (ch == '\b') // handles backspace character
+        {
+            if (!squarespaceAccount.password.empty())
+            {
+                std::cout << "\b \b"; // this erases the last character
+                squarespaceAccount.password.pop_back();
+            }
+        }
+        else
+        {
+            squarespaceAccount.password.push_back(ch);
+            std::cout << "*"; // Displays an asterik for each character (for privacy)
+        }
+    }
     std::getline(std::cin, squarespaceAccount.password);
 
     std::cout << "\033[32m\nSquarespace account connected successfully.\n\033[0m"; // Green text with reset

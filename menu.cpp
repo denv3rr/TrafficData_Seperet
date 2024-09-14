@@ -21,6 +21,7 @@
 std::map<MenuState, std::string> menuPaths = {
     {MAIN_MENU, "Main Menu"},
     {COMPANY_INFO_MENU, "Company Information Menu"},
+    {SQUARESPACE_MENU, "Squarespace Account Info"}
     // Add other menu states as needed
 };
 
