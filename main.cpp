@@ -21,8 +21,9 @@ int main()
 {
     signal(SIGINT, signalHandler); // Registers the signal handler
 
-    loadCompanyInfo("company_info.txt");                // Loads any previous info at start of program
-    loadSquarespaceAccount("squarespace_acccount.txt"); // Load any known info at start
+    loadCompanyInfo("company_info.txt");                // Loads any previous company info at start
+    loadSquarespaceAccount("squarespace_acccount.txt"); // Load any known Squarespace info at start
+    loadTrafficData("traffic_data.txt");
 
     MenuState state = MAIN_MENU;
     int choice;

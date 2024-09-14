@@ -12,8 +12,8 @@
 #include "traffic_data.h"
 #include "link_opener.h"
 #include "company_info.h"
-#include "squarespace.h"
-#include "google_analytics_api.h"
+// #include "squarespace.h"
+// #include "google_analytics_api.h"
 
 /*
  * map for menu modularity by storing object names and printing
@@ -72,10 +72,12 @@ void displayMenu(MenuState state)
         std::cout << "1. Edit Company Information\n";
         std::cout << "2. View Company Information\n";
         std::cout << "3. Back\n";
+        std::cout << "4. Exit\n";
         break;
     case SQUARESPACE_MENU:
         std::cout << "1. Enter Squarespace Account Information\n";
         std::cout << "2. Back\n";
+        std::cout << "3. Exit\n";
         break;
 
         /*
@@ -142,6 +144,9 @@ void handleMenuSelection(MenuState &state, int choice)
         case 3:
             state = MAIN_MENU;
             break;
+        case 4:
+            state = EXIT;
+            break;
         default:
             std::cout << "\033[31m \nLooks like you typed an invalid choice.\n\033[0m";
             std::cout << "Please try again!\n";
@@ -157,6 +162,9 @@ void handleMenuSelection(MenuState &state, int choice)
             break;
         case 2:
             state = MAIN_MENU;
+            break;
+        case 3:
+            state = EXIT;
             break;
         default:
             std::cout << "\033[31m \nLooks like you typed an invalid choice.\n\033[0m";

@@ -185,10 +185,11 @@ void saveTrafficData(const std::string &filename)
  */
 void loadTrafficData(const std::string &filename)
 {
+    std::cout << "Loading previous traffic data file...";
     std::ifstream inFile(filename);
     if (!inFile)
     {
-        std::cout << "\033[31m \n\nA data file does not yet exist. If it does exist, the filenames do not match.\n \033[0m";
+        std::cout << "\033[31mA data file does not yet exist. If it does exist, the filenames do not match.\n \033[0m";
         std::cout << "We currently have an empty dataset.\n\n";
         return;
     }
@@ -202,10 +203,11 @@ void loadTrafficData(const std::string &filename)
             trafficDataList.push_back(data);
         }
         inFile.close();
-        std::cout << "\033[32m \n\nTraffic data loaded from: " << filename << "\n\n \033[0m";
+        std::cout << "\033[32m\nTraffic data loaded from:\033[0m\n";
+        std::cout << filename << "\n";
     }
     else
     {
-        std::cerr << "\033[31m \n\nUnable to open file for reading. Please try again.\n\n \033[0m";
+        std::cerr << "\033[31m\nUnable to open file for reading. Please try again.\n\n \033[0m";
     }
 }

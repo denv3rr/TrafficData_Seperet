@@ -74,6 +74,7 @@ void saveSquarespaceAccount(const std::string &filename)
 
 void loadSquarespaceAccount(const std::string &filename)
 {
+    std::cout << "Loading Squarespace account info...";
     std::ifstream inFile(filename);
     if (inFile.is_open())
     {
@@ -84,6 +85,7 @@ void loadSquarespaceAccount(const std::string &filename)
     }
     else
     {
-        std::cerr << "\033[31m \nUnable to open file for reading.\n \033[0m";
+        std::cerr << "\033[31m \nUnable to load Squarespace account info.\n\033[0m";
+        std::cerr << "\033[31mThere was a fetch error or it does not exist.\n\n\033[0m";
     }
 }

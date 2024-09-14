@@ -99,6 +99,7 @@ void saveCompanyInfo(const std::string &filename)
  */
 void loadCompanyInfo(const std::string &filename)
 {
+    std::cout << "\n\nLoading company information...";
     std::ifstream inFile(filename);
     if (inFile.is_open())
     {
@@ -106,7 +107,7 @@ void loadCompanyInfo(const std::string &filename)
         std::getline(inFile, companyInfo.address);
         std::getline(inFile, companyInfo.phone);
         inFile.close();
-        std::cout << "\033[32m \nCompany information loaded from \n \033[0m" << filename << "\n";
+        std::cout << "\033[32m \nCompany information loaded from:\n\033[0m" << filename << "\n\n";
     }
     else
     {
