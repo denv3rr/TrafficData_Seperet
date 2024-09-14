@@ -3,6 +3,8 @@
  *
  */
 
+#ifndef ENABLE_GOOGLE_ANALYTICS
+
 // Standard
 #include <iostream>
 #include <curl/curl.h>
@@ -61,7 +63,6 @@ std::string fetchGoogleAnalyticsData(const std::string &apiKey, const std::strin
     return readBuffer;
 }
 
-/*
 void viewGoogleAnalyticsData()
 {
     std::string googleAnalyticsApiKey = "your_google_analytics_api_key";
@@ -74,4 +75,5 @@ void viewGoogleAnalyticsData()
     std::cout << "Google Analytics Data:\n";
     std::cout << analyticsData << "\n";
 }
-*/
+
+#endif // ENABLE_GOOGLE_ANALYTICS

@@ -1,16 +1,16 @@
 /*
  * squarespace_api.cpp for getting info from squarespace API
  */
+
+#ifndef ENABLE_SQUARESPACE
+
+// Standard
 #include <iostream>
 #include <curl/curl.h>
-#include "squarespace_api.h"
 
-// Helper function to write data to a string
-size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *userp)
-{
-    ((std::string *)userp)->append((char *)contents, size * nmemb);
-    return size * nmemb;
-}
+// Local
+#include "squarespace_api.h"
+#include "write_callback.h"
 
 std::string fetchSquarespaceAnalyticsData(const std::string &apiKey)
 {
@@ -31,3 +31,15 @@ std::string fetchSquarespaceAnalyticsData(const std::string &apiKey)
 
     return readBuffer;
 }
+
+void viewAnalyticsData()
+{
+    std::string squarespaceApiKey = "your_squarespace_api_key";
+
+    std::string analyticsData = fetchSquarespaceAnalyticsData(squarespaceApiKey);
+
+    std::cout << "Squarespace Analytics Data:\n\n";
+    std::cout << analyticsData << "\n";
+}
+
+#endif // ENABLE_SQUARESPACE

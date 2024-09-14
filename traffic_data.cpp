@@ -77,11 +77,30 @@ void viewTrafficData()
     {
         std::cout << "URL: " << data.url << "\n, Visitors: " << data.visitors << "\n, Page Views: ";
         std::cout << data.pageViews << "\n, Bandwidth: " << data.bandwidth << " MB\n\n\n";
-    };
+    }
 
-    viewAnalyticsData();       // Call the function to display Squarespace analytics data
-    viewGoogleAnalyticsData(); // Call the function to display Google Analytics data
-};
+#ifdef ENABLE_SQUARESPACE
+    if (!squarespaceApiKey.empty())
+    {
+        viewAnalyticsData();
+    }
+    else
+    {
+        std::cout << "Squarespace API key not found. Skipping Squarespace analytics data.\n";
+    }
+#endif
+
+#ifdef ENABLE_GOOGLE_ANALYTICS
+    if (!googleAnalyticsApiKey.empty())
+    {
+        viewGoogleAnalyticsData();
+    }
+    else
+    {
+        std::cout << "Google Analytics API key not found. Skipping Google Analytics data.\n";
+    }
+#endif
+}
 
 /*
  * Saves changes to data text file
@@ -103,7 +122,7 @@ void saveTrafficData(const std::string &filename)
     {
         std::cout << "\033[31m \nUnable to open this file for writing. Please try again.\n\n \033[0m";
     }
-};
+}
 
 /*
  * Loads traffic data from a text file

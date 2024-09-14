@@ -6,7 +6,9 @@
 
 #include <string>
 
+#ifndef ENABLE_SQUARESPACE
 std::string fetchSquarespaceAnalyticsData(const std::string &apiKey);
-std::string fetchGoogleSheetsData(const std::string &spreadsheetId, const std::string &range);
+void viewAnalyticsData();
+#endif // ENABLE_SQUARESPACE
 
 #endif // SQUARESPACE_API_H

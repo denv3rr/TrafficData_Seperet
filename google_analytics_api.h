@@ -8,7 +8,9 @@
 
 #include <string>
 
+#ifndef ENABLE_GOOGLE_ANALYTICS
 std::string fetchGoogleAnalyticsData(const std::string &apiKey, const std::string &viewId, const std::string &startDate, const std::string &endDate);
-void viewGoogleAnalyticsData(); // Declare the function
+void viewGoogleAnalyticsData();
+#endif // ENABLE_GOOGLE_ANALYTICS
 
 #endif // GOOGLE_ANALYTICS_API_H
