@@ -13,6 +13,7 @@
 #include "link_opener.h"
 #include "company_info.h"
 #include "squarespace.h"
+#include "google_analytics_api.h"
 
 /*
  * map for menu modularity by storing object names and printing

@@ -9,6 +9,9 @@ This program helps you manage site information such as:
 
 ## Compiling
 - Compile all `.cpp` files with: `g++ -I ./ *.cpp -o (name_of_out_your_file)`
+- To use `curl` command, use: `g++ -I/path/to/curl/include -L/path/to/curl/lib -lcurl *.cpp -o (name_of_out_your_file)`
+
+
 - Then, run the output file (`(name_of_out_your_file).exe`) on Windows.
 
 ## Note

@@ -62,3 +62,16 @@ std::string fetchGoogleAnalyticsData(const std::string &apiKey, const std::strin
 
     return readBuffer;
 }
+
+void viewGoogleAnalyticsData()
+{
+    std::string googleAnalyticsApiKey = "your_google_analytics_api_key";
+    std::string viewId = "your_view_id";
+    std::string startDate = "2023-01-01";
+    std::string endDate = "2023-12-31";
+
+    std::string analyticsData = fetchGoogleAnalyticsData(googleAnalyticsApiKey, viewId, startDate, endDate);
+
+    std::cout << "Google Analytics Data:\n";
+    std::cout << analyticsData << "\n";
+}
