@@ -1,5 +1,13 @@
+/*
+ * google_analytics_api.cpp
+ *
+ */
+
+// Standard
 #include <iostream>
 #include <curl/curl.h>
+
+// Local
 #include "google_analytics_api.h"
 #include "write_callback.h"
 
@@ -53,6 +61,7 @@ std::string fetchGoogleAnalyticsData(const std::string &apiKey, const std::strin
     return readBuffer;
 }
 
+/*
 void viewGoogleAnalyticsData()
 {
     std::string googleAnalyticsApiKey = "your_google_analytics_api_key";
@@ -65,3 +74,4 @@ void viewGoogleAnalyticsData()
     std::cout << "Google Analytics Data:\n";
     std::cout << analyticsData << "\n";
 }
+*/
