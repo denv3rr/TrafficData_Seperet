@@ -43,6 +43,7 @@ void displayCurrentPath(MenuState state)
 void displayMenu(MenuState state)
 {
     // title banner
+
     std::cout << "\n\n********************\n\n";
     std::cout << "Internet Traffic Auditor";
     std::cout << "\n\n********************\n\n";
@@ -102,6 +103,7 @@ void handleMenuSelection(MenuState &state, int choice)
             state = COMPANY_INFO_MENU;
             break;
         case 6:
+            state = EXIT;
             std::cout << "\n********************\n";
             std::cout << "\nExiting...\n";
             break;

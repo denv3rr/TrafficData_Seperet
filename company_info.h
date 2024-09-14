@@ -21,5 +21,6 @@ extern bool companyInfoUpdated; // Flags to check if the info was updated
 void changeCompanyInfo();
 void saveCompanyInfo(const std::string &filename);
 void loadCompanyInfo(const std::string &filename);
+void signalHandler(int signum);
 
 #endif // COMPANY_INFO_H

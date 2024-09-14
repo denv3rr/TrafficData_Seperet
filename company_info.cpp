@@ -65,7 +65,7 @@ void saveCompanyInfo(const std::string &filename)
         outFile << companyInfo.address << "\n";
         outFile << companyInfo.phone << "\n";
         outFile.close();
-        std::cout << "\033[32m \nCompany information saved to \n \033[0m" << filename << "\n";
+        std::cout << "\033[32m \nCompany information saved to \n\033[0m" << filename << "\n";
     }
     else
     {
