@@ -7,7 +7,7 @@
 
 // Standard
 #include <iostream>
-#include <curl/curl.h>
+#include <C:\curl\include\curl\curl.h>
 
 // Local
 #include "google_analytics_api.h"

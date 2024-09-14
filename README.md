@@ -18,6 +18,9 @@ This program helps you manage site information such as:
 
 - To use `curl` command, use: `g++ -I/path/to/curl/include -L/path/to/curl/lib -lcurl *.cpp -o (name_of_out_your_file)`
 
+- To run *without* using APIs, use: `g++ -DENABLE_GOOGLE_ANALYTICS -DENABLE_SQUARESPACE -I C:\curl\include -L C:\curl\lib -lcurl *.cpp -o (name_of_out_your_file)`. This defines the Google and Squarespace macros to be set to disable or enable use of API functions.
+
+## Run Program
 - Then, run the output file (`(name_of_out_your_file).exe`) on Windows.
 
 ## Note
