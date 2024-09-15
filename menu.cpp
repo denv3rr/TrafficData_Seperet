@@ -21,7 +21,8 @@
  */
 std::map<MenuState, std::string> menuPaths = {
     {MAIN_MENU, "Main Menu"},
-    {COMPANY_INFO_MENU, "Company Information Menu"},
+    {TRAFFIC_DATA_MENU, "Traffic Data"},
+    {COMPANY_INFO_MENU, "Company Information"},
     {SQUARESPACE_MENU, "Squarespace Account Info"}
     // Add other menu states as needed
 };
@@ -35,7 +36,7 @@ void displayCurrentPath(MenuState state)
     /*
      * shows current menu name (ADD OPTIONS as needed)
      */
-    std::cout << "Location: \n";
+    std::cout << companyInfo.name << "\n";
     std::cout << menuPaths[state] << "\n\n";
 }
 
@@ -57,14 +58,13 @@ void displayMenu(MenuState state)
     switch (state)
     {
     case MAIN_MENU:
-        std::cout << "1. Add Traffic Data\n";
-        std::cout << "2. View Traffic Data\n";
-        std::cout << "3. Visit Seperet.com\n";
-        std::cout << "4. Visit Our YouTube Channel\n";
-        std::cout << "5. Company Information\n";
-        std::cout << "6. Connect Squarespace Account\n";
-        std::cout << "7. View Google Analytics Data\n";
-        std::cout << "8. Exit\n";
+        std::cout << "1. Traffic Data\n";
+        std::cout << "2. Company Information\n";
+        std::cout << "3. Connect Squarespace Account\n";
+        std::cout << "4. View Google Analytics Data\n";
+        std::cout << "5. Visit Seperet.com\n";
+        std::cout << "6. Visit Our YouTube Channel\n";
+        std::cout << "7. Exit\n";
         break;
     case COMPANY_INFO_MENU:
         std::cout << "1. Edit Company Information\n";
@@ -97,27 +97,23 @@ void handleMenuSelection(MenuState &state, int choice)
         switch (choice)
         {
         case 1:
-            addTrafficData();
+            state = TRAFFIC_DATA_MENU;
             break;
         case 2:
-            viewTrafficData();
-            break;
-        case 3:
-            linkOpener.openSeperetWebsite();
-            break;
-        case 4:
-            linkOpener.openSeperetYouTube();
-            break;
-        case 5:
             state = COMPANY_INFO_MENU;
             break;
-        case 6:
+        case 3:
             state = SQUARESPACE_MENU;
             break;
-        case 7:
-            // viewGoogleAnalyticsData();
+        case 4:
+            // this will hold call to Google Analytics functions
+        case 5:
+            linkOpener.openSeperetWebsite();
             break;
-        case 8:
+        case 6:
+            linkOpener.openSeperetYouTube();
+            break;
+        case 7:
             state = EXIT;
             std::cout << "\n********************\n";
             std::cout << "\nExiting...\n";
@@ -128,6 +124,28 @@ void handleMenuSelection(MenuState &state, int choice)
             break;
         }
         break;
+
+    // "Traffic Data" menu switch case
+    case TRAFFIC_DATA_MENU:
+        switch (choice)
+        {
+        case 1:
+            addTrafficData();
+            break;
+        case 2:
+            viewTrafficData();
+            break;
+        case 3:
+            state = MAIN_MENU;
+            break;
+        case 4:
+            state = EXIT;
+            break;
+        default:
+            std::cout << "\033[31m \nLooks like you typed an invalid choice.\n\033[0m";
+            std::cout << "Please try again!\n";
+            break;
+        }
 
     // 'Company Info' menu switch case
     case COMPANY_INFO_MENU:

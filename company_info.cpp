@@ -111,6 +111,6 @@ void loadCompanyInfo(const std::string &filename)
     }
     else
     {
-        std::cerr << "\033[31m \nUnable to open file for reading.\n \033[0m";
+        std::cerr << "\033[31m\nUnable to load company info file or it has not been created yet.\033[0m";
     }
 }

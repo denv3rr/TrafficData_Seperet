@@ -9,6 +9,7 @@
 enum MenuState
 {
     MAIN_MENU,
+    TRAFFIC_DATA_MENU,
     COMPANY_INFO_MENU,
     SQUARESPACE_MENU,
     EXIT,
