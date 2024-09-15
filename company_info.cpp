@@ -107,10 +107,10 @@ void loadCompanyInfo(const std::string &filename)
         std::getline(inFile, companyInfo.address);
         std::getline(inFile, companyInfo.phone);
         inFile.close();
-        std::cout << "\033[32m \nCompany information loaded from:\n\033[0m" << filename << "\n\n";
+        std::cout << "\033[32m\nCompany information loaded from:\n\033[0m" << filename << "\n";
     }
     else
     {
-        std::cerr << "\033[31m\nUnable to load company info file or it has not been created yet.\033[0m";
+        std::cerr << "\033[31m\nUnable to load company info file or it has not been created yet.\033[0m\n";
     }
 }
