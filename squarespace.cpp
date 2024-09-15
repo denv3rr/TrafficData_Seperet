@@ -74,7 +74,7 @@ void saveSquarespaceAccount(const std::string &filename)
 
 void loadSquarespaceAccount(const std::string &filename)
 {
-    std::cout << "\n\nLoading Squarespace account info...";
+    std::cout << "\nLoading Squarespace account info...";
     std::ifstream inFile(filename);
     if (inFile.is_open())
     {

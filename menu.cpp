@@ -66,6 +66,12 @@ void displayMenu(MenuState state)
         std::cout << "6. Visit Our YouTube Channel\n";
         std::cout << "7. Exit\n";
         break;
+    case TRAFFIC_DATA_MENU:
+        std::cout << "1. Add traffic data\n";
+        std::cout << "2. View traffic data report\n";
+        std::cout << "3. Back\n";
+        std::cout << "4. Exit\n";
+        break;
     case COMPANY_INFO_MENU:
         std::cout << "1. Edit Company Information\n";
         std::cout << "2. View Company Information\n";
@@ -107,6 +113,7 @@ void handleMenuSelection(MenuState &state, int choice)
             break;
         case 4:
             // this will hold call to Google Analytics functions
+            break;
         case 5:
             linkOpener.openSeperetWebsite();
             break;
@@ -146,6 +153,7 @@ void handleMenuSelection(MenuState &state, int choice)
             std::cout << "Please try again!\n";
             break;
         }
+        break;
 
     // 'Company Info' menu switch case
     case COMPANY_INFO_MENU:

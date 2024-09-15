@@ -62,7 +62,7 @@ int main()
 
     loadCompanyInfo("company_info.txt");                // Loads any previous company info at start
     loadSquarespaceAccount("squarespace_acccount.txt"); // Load any known Squarespace info at start
-    loadTrafficData("traffic_data.txt");
+    loadTrafficData("traffic_data.txt");                // Loads known traffic data
 
     MenuState state = MAIN_MENU;
     int choice;
