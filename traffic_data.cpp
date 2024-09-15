@@ -188,7 +188,7 @@ void loadTrafficData(const std::string &filename)
     std::ifstream inFile(filename);
     if (!inFile)
     {
-        std::cout << "\033[31mA data file does not yet exist. If it does exist, the filenames do not match.\n \033[0m";
+        std::cout << "\033[31m\nA data file does not yet exist. If it does exist, the filenames do not match.\n\033[0m";
         std::cout << "We currently have an empty dataset.\n\n";
         return;
     }
