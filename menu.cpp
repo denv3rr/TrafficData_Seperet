@@ -35,7 +35,7 @@ void displayCurrentPath(MenuState state)
     /*
      * shows current menu name (ADD OPTIONS as needed)
      */
-    std::cout << "Current Path: \n";
+    std::cout << "Location: \n";
     std::cout << menuPaths[state] << "\n\n";
 }
 

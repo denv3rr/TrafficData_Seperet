@@ -116,7 +116,6 @@ void viewTrafficData()
             inFile.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore the newline character after bandwidth
             std::cout << "URL: " << data.url << "\nVisitors: " << data.visitors << "\nPage Views: ";
             std::cout << data.pageViews << "\nBandwidth: " << data.bandwidth << " MB\n\n\n";
-            std::cout << "\n\n\n";
         }
 
         std::cout << "\033[32m \n\nEnd of report.\n\n \033[0m";
