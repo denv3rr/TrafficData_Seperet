@@ -47,8 +47,6 @@ void displayMenu(MenuState state)
 {
     // title banner
     std::cout << "\n\n********************\n\n";
-    std::cout << "Internet Traffic Auditor";
-    std::cout << "\n\n********************\n\n";
 
     // calls function to display current menu location
     displayCurrentPath(state);
